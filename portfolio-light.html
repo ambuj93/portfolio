@@ -1,0 +1,1669 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Ambuj Bhardwaj | Data & Analytics Leader</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <style>
+        :root {
+            --navy: #0A2540;
+            --slate-gray: #6B7280;
+            --off-white: #F9FAFB;
+            --teal: #0EA5A4;
+            --teal-glow: rgba(14, 165, 164, 0.15);
+            --nav-overlay: rgba(249, 250, 251, 0.95);
+            --white: #FFFFFF;
+        }
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Inter', sans-serif;
+            background: var(--off-white);
+            color: var(--navy);
+            line-height: 1.6;
+            overflow-x: hidden;
+        }
+
+        /* Animated Background Grid */
+        .background-grid {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background-image: 
+                linear-gradient(rgba(14, 165, 164, 0.05) 1px, transparent 1px),
+                linear-gradient(90deg, rgba(14, 165, 164, 0.05) 1px, transparent 1px);
+            background-size: 50px 50px;
+            z-index: 0;
+            animation: gridMove 20s linear infinite;
+        }
+
+        @keyframes gridMove {
+            0% { transform: translate(0, 0); }
+            100% { transform: translate(50px, 50px); }
+        }
+
+        .gradient-orb {
+            position: fixed;
+            border-radius: 50%;
+            filter: blur(100px);
+            opacity: 0.1;
+            z-index: 0;
+            animation: float 20s ease-in-out infinite;
+        }
+
+        .orb-1 {
+            width: 500px;
+            height: 500px;
+            background: var(--teal);
+            top: -10%;
+            right: -10%;
+            animation-delay: 0s;
+        }
+
+        .orb-2 {
+            width: 400px;
+            height: 400px;
+            background: var(--navy);
+            bottom: -10%;
+            left: -10%;
+            animation-delay: 5s;
+        }
+
+        @keyframes float {
+            0%, 100% { transform: translate(0, 0) scale(1); }
+            33% { transform: translate(50px, -50px) scale(1.1); }
+            66% { transform: translate(-30px, 30px) scale(0.9); }
+        }
+
+        .container {
+            max-width: 1400px;
+            margin: 0 auto;
+            padding: 0 2rem;
+            position: relative;
+            z-index: 1;
+        }
+
+        /* Navigation */
+        nav {
+            padding: 1.25rem 0;
+            position: sticky;
+            top: 0;
+            background: var(--nav-overlay);
+            backdrop-filter: blur(10px);
+            z-index: 100;
+            border-bottom: 1px solid rgba(10, 37, 64, 0.1);
+        }
+
+        nav .container {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        .logo {
+            display: flex;
+            align-items: center;
+            gap: 0.75rem;
+            text-decoration: none;
+        }
+
+        .logo-icon {
+            width: 40px;
+            height: 40px;
+            background: linear-gradient(135deg, var(--navy), #0d3a5c);
+            border-radius: 10px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-family: 'Inter', sans-serif;
+            font-size: 1rem;
+            color: var(--white);
+            font-weight: 600;
+        }
+
+        .logo-text {
+            font-family: 'Inter', sans-serif;
+            font-size: 1.25rem;
+            font-weight: 600;
+            letter-spacing: -0.02em;
+            color: var(--navy);
+        }
+
+        .nav-links {
+            display: flex;
+            gap: 2.5rem;
+            list-style: none;
+            align-items: center;
+        }
+
+        .nav-links a {
+            color: var(--slate-gray);
+            text-decoration: none;
+            font-weight: 500;
+            font-size: 0.95rem;
+            transition: all 0.3s ease;
+            position: relative;
+        }
+
+        .nav-links a::after {
+            content: '';
+            position: absolute;
+            bottom: -5px;
+            left: 0;
+            width: 0;
+            height: 2px;
+            background: var(--teal);
+            transition: width 0.3s ease;
+        }
+
+        .nav-links a:hover {
+            color: var(--navy);
+        }
+
+        .nav-links a:hover::after {
+            width: 100%;
+        }
+
+        .nav-cta {
+            background: var(--teal);
+            color: var(--white) !important;
+            padding: 0.75rem 1.5rem;
+            border-radius: 8px;
+            font-weight: 600;
+            transition: all 0.3s ease;
+        }
+
+        .nav-cta::after {
+            display: none !important;
+        }
+
+        .nav-cta:hover {
+            background: #0c8a89;
+            transform: translateY(-2px);
+            box-shadow: 0 10px 30px rgba(14, 165, 164, 0.3);
+        }
+
+        /* Mobile Menu */
+        .mobile-menu-btn {
+            display: none;
+            flex-direction: column;
+            gap: 5px;
+            background: none;
+            border: none;
+            cursor: pointer;
+            padding: 5px;
+        }
+
+        .mobile-menu-btn span {
+            width: 25px;
+            height: 2px;
+            background: var(--navy);
+            transition: all 0.3s ease;
+        }
+
+        /* Hero Section */
+        .hero {
+            min-height: calc(100vh - 70px);
+            display: flex;
+            align-items: center;
+            padding: 2rem 0;
+        }
+
+        .hero-grid {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 3rem;
+            align-items: center;
+        }
+
+        .hero-content {
+            animation: fadeInUp 1s ease-out;
+        }
+
+        .hero-image-container {
+            position: relative;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            animation: fadeInUp 1s ease-out 0.4s both;
+        }
+
+        .image-wrapper {
+            position: relative;
+            width: 320px;
+            height: 320px;
+        }
+
+        .image-glow {
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+            width: 360px;
+            height: 360px;
+            background: radial-gradient(circle, var(--teal) 0%, transparent 70%);
+            opacity: 0.15;
+            border-radius: 50%;
+            animation: pulse-glow 4s ease-in-out infinite;
+        }
+
+        @keyframes pulse-glow {
+            0%, 100% { transform: translate(-50%, -50%) scale(1); opacity: 0.15; }
+            50% { transform: translate(-50%, -50%) scale(1.1); opacity: 0.25; }
+        }
+
+        .headshot {
+            position: relative;
+            width: 100%;
+            height: 100%;
+            border-radius: 50%;
+            object-fit: cover;
+            border: 3px solid var(--teal);
+            box-shadow: 0 20px 60px rgba(14, 165, 164, 0.2);
+            transition: all 0.5s ease;
+        }
+
+        .headshot:hover {
+            transform: scale(1.05);
+            box-shadow: 0 30px 80px rgba(14, 165, 164, 0.3);
+        }
+
+        .floating-elements {
+            position: absolute;
+            width: 100%;
+            height: 100%;
+            pointer-events: none;
+        }
+
+        .floating-element {
+            position: absolute;
+            width: 60px;
+            height: 60px;
+            border: 2px solid var(--teal);
+            border-radius: 12px;
+            background: rgba(14, 165, 164, 0.05);
+            backdrop-filter: blur(10px);
+        }
+
+        .element-1 {
+            top: -20px;
+            right: -20px;
+            animation: float-1 6s ease-in-out infinite;
+        }
+
+        .element-2 {
+            bottom: -20px;
+            left: -20px;
+            animation: float-2 7s ease-in-out infinite;
+        }
+
+        .element-3 {
+            top: 50%;
+            right: -40px;
+            width: 40px;
+            height: 40px;
+            animation: float-3 5s ease-in-out infinite;
+        }
+
+        @keyframes float-1 {
+            0%, 100% { transform: translate(0, 0) rotate(0deg); }
+            50% { transform: translate(-10px, -10px) rotate(5deg); }
+        }
+
+        @keyframes float-2 {
+            0%, 100% { transform: translate(0, 0) rotate(0deg); }
+            50% { transform: translate(10px, 10px) rotate(-5deg); }
+        }
+
+        @keyframes float-3 {
+            0%, 100% { transform: translate(0, -50%) rotate(0deg); }
+            50% { transform: translate(-15px, -50%) rotate(10deg); }
+        }
+
+        @keyframes fadeInUp {
+            from {
+                opacity: 0;
+                transform: translateY(30px);
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+
+        .hero-label {
+            display: inline-block;
+            padding: 0.4rem 1rem;
+            background: var(--teal-glow);
+            border: 1px solid var(--teal);
+            border-radius: 50px;
+            color: var(--teal);
+            font-size: 0.8rem;
+            font-weight: 600;
+            letter-spacing: 0.05em;
+            text-transform: uppercase;
+            margin-bottom: 1rem;
+            animation: fadeInUp 1s ease-out 0.2s both;
+        }
+
+        h1 {
+            font-family: 'Inter', sans-serif;
+            font-size: clamp(2.5rem, 5vw, 4rem);
+            line-height: 1.1;
+            margin-bottom: 1rem;
+            font-weight: 600;
+            letter-spacing: -0.03em;
+            color: var(--navy);
+            animation: fadeInUp 1s ease-out 0.4s both;
+        }
+
+        .highlight {
+            color: var(--teal);
+            position: relative;
+            display: inline-block;
+        }
+
+        .hero-description {
+            font-size: 1.05rem;
+            color: var(--slate-gray);
+            max-width: 600px;
+            margin-bottom: 1.25rem;
+            line-height: 1.7;
+            animation: fadeInUp 1s ease-out 0.6s both;
+        }
+
+        .hero-cta-group {
+            display: flex;
+            gap: 1rem;
+            flex-wrap: wrap;
+            margin-bottom: 1.5rem;
+            animation: fadeInUp 1s ease-out 0.7s both;
+        }
+
+        .cta-primary {
+            display: inline-flex;
+            align-items: center;
+            gap: 0.5rem;
+            background: var(--teal);
+            color: var(--white);
+            padding: 0.75rem 1.5rem;
+            border-radius: 8px;
+            font-weight: 600;
+            font-size: 0.95rem;
+            text-decoration: none;
+            transition: all 0.3s ease;
+            border: 2px solid var(--teal);
+        }
+
+        .cta-primary:hover {
+            background: #0c8a89;
+            transform: translateY(-3px);
+            box-shadow: 0 15px 40px rgba(14, 165, 164, 0.4);
+        }
+
+        .cta-secondary {
+            display: inline-flex;
+            align-items: center;
+            gap: 0.5rem;
+            background: transparent;
+            color: var(--navy);
+            padding: 0.75rem 1.5rem;
+            border-radius: 8px;
+            font-weight: 600;
+            font-size: 0.95rem;
+            text-decoration: none;
+            transition: all 0.3s ease;
+            border: 2px solid rgba(10, 37, 64, 0.2);
+        }
+
+        .cta-secondary:hover {
+            border-color: var(--teal);
+            color: var(--teal);
+            transform: translateY(-3px);
+        }
+
+        .stats-grid {
+            display: grid;
+            grid-template-columns: repeat(4, 1fr);
+            gap: 1rem;
+            margin-top: 1rem;
+            animation: fadeInUp 1s ease-out 0.8s both;
+        }
+
+        .stat-item {
+            padding: 1.25rem;
+            background: var(--white);
+            border: 1px solid rgba(10, 37, 64, 0.1);
+            border-radius: 10px;
+            transition: all 0.3s ease;
+            box-shadow: 0 2px 8px rgba(10, 37, 64, 0.04);
+        }
+
+        .stat-item:hover {
+            background: var(--white);
+            border-color: var(--teal);
+            transform: translateY(-3px);
+            box-shadow: 0 10px 30px rgba(14, 165, 164, 0.1);
+        }
+
+        .stat-number {
+            font-family: 'Inter', sans-serif;
+            font-size: 1.75rem;
+            font-weight: 600;
+            color: var(--teal);
+            margin-bottom: 0.25rem;
+            display: block;
+        }
+
+        .stat-label {
+            color: var(--slate-gray);
+            font-size: 0.8rem;
+            font-weight: 500;
+        }
+
+        /* Section Styles */
+        section {
+            padding: 5rem 0;
+            position: relative;
+        }
+
+        .section-header {
+            margin-bottom: 2.5rem;
+        }
+
+        .section-label {
+            color: var(--teal);
+            font-size: 0.875rem;
+            font-weight: 700;
+            letter-spacing: 0.1em;
+            text-transform: uppercase;
+            margin-bottom: 1rem;
+        }
+
+        h2 {
+            font-family: 'Inter', sans-serif;
+            font-size: clamp(2rem, 4vw, 3rem);
+            line-height: 1.2;
+            margin-bottom: 1.5rem;
+            font-weight: 600;
+            color: var(--navy);
+        }
+
+        .section-description {
+            font-size: 1.125rem;
+            color: var(--slate-gray);
+            max-width: 700px;
+            line-height: 1.8;
+        }
+
+        /* Impact Metrics */
+        .impact-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+            gap: 1.5rem;
+        }
+
+        .impact-card {
+            background: var(--white);
+            border: 1px solid rgba(10, 37, 64, 0.1);
+            border-radius: 16px;
+            padding: 2rem;
+            position: relative;
+            overflow: hidden;
+            transition: all 0.3s ease;
+            box-shadow: 0 2px 8px rgba(10, 37, 64, 0.04);
+        }
+
+        .impact-card::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 4px;
+            background: linear-gradient(90deg, var(--teal), transparent);
+        }
+
+        .impact-card:hover {
+            transform: translateY(-10px);
+            box-shadow: 0 20px 40px rgba(14, 165, 164, 0.15);
+        }
+
+        .impact-number {
+            font-family: 'Inter', sans-serif;
+            font-size: 2.5rem;
+            font-weight: 600;
+            color: var(--teal);
+            margin-bottom: 0.75rem;
+            display: block;
+        }
+
+        .impact-description {
+            color: var(--slate-gray);
+            line-height: 1.7;
+        }
+
+        /* Experience Timeline */
+        .timeline {
+            position: relative;
+            padding-left: 3rem;
+        }
+
+        .timeline::before {
+            content: '';
+            position: absolute;
+            left: 0;
+            top: 0;
+            bottom: 0;
+            width: 2px;
+            background: linear-gradient(to bottom, var(--teal), rgba(14, 165, 164, 0.2));
+        }
+
+        .timeline-item {
+            margin-bottom: 2.5rem;
+            position: relative;
+            opacity: 0;
+            animation: slideInLeft 0.8s ease-out forwards;
+        }
+
+        .timeline-item:nth-child(1) { animation-delay: 0.1s; }
+        .timeline-item:nth-child(2) { animation-delay: 0.2s; }
+        .timeline-item:nth-child(3) { animation-delay: 0.3s; }
+        .timeline-item:nth-child(4) { animation-delay: 0.4s; }
+
+        @keyframes slideInLeft {
+            from {
+                opacity: 0;
+                transform: translateX(-30px);
+            }
+            to {
+                opacity: 1;
+                transform: translateX(0);
+            }
+        }
+
+        .timeline-item::before {
+            content: '';
+            position: absolute;
+            left: calc(-3rem - 5px);
+            top: 0.5rem;
+            width: 12px;
+            height: 12px;
+            background: var(--teal);
+            border-radius: 50%;
+            box-shadow: 0 0 20px var(--teal-glow);
+        }
+
+        .timeline-item.current::before {
+            width: 16px;
+            height: 16px;
+            left: calc(-3rem - 7px);
+            animation: pulse 2s ease-in-out infinite;
+        }
+
+        @keyframes pulse {
+            0%, 100% { box-shadow: 0 0 20px var(--teal-glow); }
+            50% { box-shadow: 0 0 30px var(--teal); }
+        }
+
+        .experience-card {
+            background: var(--white);
+            border: 1px solid rgba(10, 37, 64, 0.1);
+            border-radius: 16px;
+            padding: 2rem;
+            transition: all 0.3s ease;
+            box-shadow: 0 2px 8px rgba(10, 37, 64, 0.04);
+        }
+
+        .experience-card:hover {
+            background: var(--white);
+            border-color: var(--teal);
+            transform: translateX(10px);
+            box-shadow: 0 10px 30px rgba(14, 165, 164, 0.1);
+        }
+
+        .experience-header {
+            margin-bottom: 1.25rem;
+        }
+
+        .company-role {
+            display: flex;
+            justify-content: space-between;
+            align-items: flex-start;
+            flex-wrap: wrap;
+            gap: 0.75rem;
+            margin-bottom: 0.5rem;
+        }
+
+        h3 {
+            font-family: 'Inter', sans-serif;
+            font-size: 1.5rem;
+            margin-bottom: 0.5rem;
+            font-weight: 600;
+            color: var(--navy);
+        }
+
+        .role-title {
+            color: var(--teal);
+            font-size: 1.125rem;
+            font-weight: 600;
+        }
+
+        .date-badge {
+            background: rgba(14, 165, 164, 0.1);
+            color: var(--teal);
+            padding: 0.5rem 1rem;
+            border-radius: 50px;
+            font-size: 0.875rem;
+            font-weight: 600;
+            white-space: nowrap;
+        }
+
+        .current-badge {
+            background: var(--teal);
+            color: var(--white);
+        }
+
+        .location {
+            color: var(--slate-gray);
+            font-size: 0.95rem;
+            margin-bottom: 1rem;
+        }
+
+        .experience-description {
+            color: var(--slate-gray);
+            margin-bottom: 1.25rem;
+            line-height: 1.7;
+        }
+
+        .highlights {
+            list-style: none;
+            margin-bottom: 1.25rem;
+        }
+
+        .highlights li {
+            padding-left: 1.5rem;
+            margin-bottom: 0.6rem;
+            position: relative;
+            color: var(--slate-gray);
+            line-height: 1.6;
+        }
+
+        .highlights li::before {
+            content: '▹';
+            position: absolute;
+            left: 0;
+            color: var(--teal);
+            font-size: 1.2rem;
+        }
+
+        .highlights strong {
+            color: var(--navy);
+            font-weight: 600;
+        }
+
+        .tech-stack {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 0.5rem;
+            margin-top: 1rem;
+        }
+
+        .tech-tag {
+            padding: 0.5rem 1rem;
+            background: rgba(14, 165, 164, 0.1);
+            border: 1px solid rgba(14, 165, 164, 0.2);
+            border-radius: 6px;
+            font-size: 0.875rem;
+            color: var(--teal);
+            font-weight: 500;
+            transition: all 0.3s ease;
+        }
+
+        .tech-tag:hover {
+            background: rgba(14, 165, 164, 0.2);
+            border-color: var(--teal);
+            transform: translateY(-2px);
+        }
+
+        /* Skills Section */
+        .skills-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 1.5rem;
+        }
+
+        .skill-category {
+            background: var(--white);
+            border: 1px solid rgba(10, 37, 64, 0.1);
+            border-radius: 16px;
+            padding: 1.5rem;
+            transition: all 0.3s ease;
+            box-shadow: 0 2px 8px rgba(10, 37, 64, 0.04);
+        }
+
+        .skill-category:hover {
+            background: var(--white);
+            border-color: var(--teal);
+            transform: translateY(-5px);
+            box-shadow: 0 10px 30px rgba(14, 165, 164, 0.1);
+        }
+
+        .skill-category h3 {
+            font-size: 1.15rem;
+            margin-bottom: 1rem;
+            color: var(--teal);
+            font-weight: 600;
+        }
+
+        .skill-list {
+            list-style: none;
+        }
+
+        .skill-list li {
+            padding: 0.75rem 0;
+            border-bottom: 1px solid rgba(10, 37, 64, 0.08);
+            color: var(--slate-gray);
+            font-weight: 500;
+        }
+
+        .skill-list li:last-child {
+            border-bottom: none;
+        }
+
+        /* Contact Section */
+        #contact {
+            padding: 5rem 0;
+        }
+
+        .contact-content {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 3rem;
+            align-items: center;
+        }
+
+        .contact-info-card {
+            background: var(--white);
+            border: 1px solid rgba(10, 37, 64, 0.1);
+            border-radius: 16px;
+            padding: 2rem;
+            box-shadow: 0 2px 8px rgba(10, 37, 64, 0.04);
+        }
+
+        .contact-links {
+            display: flex;
+            flex-direction: column;
+            gap: 1rem;
+        }
+
+        .contact-link {
+            display: flex;
+            align-items: center;
+            gap: 1rem;
+            padding: 1rem;
+            background: rgba(14, 165, 164, 0.05);
+            border: 1px solid rgba(14, 165, 164, 0.1);
+            border-radius: 12px;
+            text-decoration: none;
+            transition: all 0.3s ease;
+        }
+
+        .contact-link:hover {
+            background: rgba(14, 165, 164, 0.1);
+            border-color: var(--teal);
+            transform: translateX(10px);
+        }
+
+        .contact-link-icon {
+            width: 44px;
+            height: 44px;
+            background: var(--teal);
+            border-radius: 10px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            flex-shrink: 0;
+        }
+
+        .contact-link-icon svg {
+            width: 24px;
+            height: 24px;
+            fill: var(--white);
+        }
+
+        .contact-link-content {
+            display: flex;
+            flex-direction: column;
+        }
+
+        .contact-link-label {
+            font-size: 0.875rem;
+            color: var(--slate-gray);
+            margin-bottom: 0.25rem;
+        }
+
+        .contact-link-value {
+            font-size: 1.125rem;
+            color: var(--navy);
+            font-weight: 600;
+        }
+
+        .contact-cta {
+            text-align: center;
+        }
+
+        .contact-cta h3 {
+            font-size: 1.5rem;
+            margin-bottom: 0.75rem;
+            color: var(--navy);
+            font-weight: 600;
+        }
+
+        .contact-cta p {
+            color: var(--slate-gray);
+            margin-bottom: 1.5rem;
+            line-height: 1.7;
+        }
+
+        .contact-cta-btn {
+            display: inline-flex;
+            align-items: center;
+            gap: 0.5rem;
+            background: var(--teal);
+            color: var(--white);
+            padding: 1rem 2rem;
+            border-radius: 8px;
+            font-weight: 600;
+            font-size: 1rem;
+            text-decoration: none;
+            transition: all 0.3s ease;
+        }
+
+        .contact-cta-btn:hover {
+            background: #0c8a89;
+            transform: translateY(-3px);
+            box-shadow: 0 15px 40px rgba(14, 165, 164, 0.4);
+        }
+
+        /* Footer */
+        footer {
+            padding: 3rem 0;
+            border-top: 1px solid rgba(10, 37, 64, 0.1);
+            margin-top: 2rem;
+        }
+
+        .footer-content {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            flex-wrap: wrap;
+            gap: 2rem;
+        }
+
+        .footer-left {
+            display: flex;
+            align-items: center;
+            gap: 0.75rem;
+        }
+
+        .footer-logo-icon {
+            width: 36px;
+            height: 36px;
+            background: linear-gradient(135deg, var(--navy), #0d3a5c);
+            border-radius: 8px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-family: 'Inter', sans-serif;
+            font-size: 0.95rem;
+            font-weight: 600;
+            color: var(--white);
+        }
+
+        .footer-text {
+            color: var(--slate-gray);
+        }
+
+        .footer-social {
+            display: flex;
+            gap: 1rem;
+        }
+
+        .footer-social a {
+            width: 40px;
+            height: 40px;
+            background: rgba(10, 37, 64, 0.05);
+            border: 1px solid rgba(10, 37, 64, 0.15);
+            border-radius: 8px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            transition: all 0.3s ease;
+        }
+
+        .footer-social a:hover {
+            background: var(--teal);
+            border-color: var(--teal);
+            transform: translateY(-3px);
+        }
+
+        .footer-social svg {
+            width: 20px;
+            height: 20px;
+            fill: var(--slate-gray);
+        }
+
+        .footer-social a:hover svg {
+            fill: var(--white);
+        }
+
+        /* Responsive Design */
+        @media (max-width: 1024px) {
+            .contact-content {
+                grid-template-columns: 1fr;
+                gap: 3rem;
+            }
+        }
+
+        @media (max-width: 768px) {
+            .nav-links {
+                display: none;
+            }
+
+            .mobile-menu-btn {
+                display: flex;
+            }
+
+            h1 {
+                font-size: 2rem;
+            }
+
+            h2 {
+                font-size: 1.75rem;
+            }
+
+            .hero {
+                min-height: auto;
+                padding: 1.5rem 0;
+            }
+
+            .hero-grid {
+                grid-template-columns: 1fr;
+                gap: 2rem;
+            }
+
+            .hero-image-container {
+                order: -1;
+            }
+
+            .image-wrapper {
+                width: 220px;
+                height: 220px;
+            }
+
+            .image-glow {
+                width: 260px;
+                height: 260px;
+            }
+
+            .stats-grid {
+                grid-template-columns: repeat(2, 1fr);
+                gap: 0.75rem;
+            }
+
+            .timeline {
+                padding-left: 2rem;
+            }
+
+            .timeline-item::before {
+                left: calc(-2rem - 5px);
+            }
+
+            .timeline-item.current::before {
+                left: calc(-2rem - 7px);
+            }
+
+            .experience-card {
+                padding: 1.5rem;
+            }
+
+            section {
+                padding: 3rem 0;
+            }
+
+            .hero-cta-group {
+                flex-direction: column;
+            }
+
+            .cta-primary, .cta-secondary {
+                justify-content: center;
+            }
+
+            .footer-content {
+                flex-direction: column;
+                text-align: center;
+            }
+        }
+
+        @media (max-width: 480px) {
+            .stats-grid {
+                grid-template-columns: repeat(2, 1fr);
+            }
+
+            .image-wrapper {
+                width: 180px;
+                height: 180px;
+            }
+
+            .image-glow {
+                width: 220px;
+                height: 220px;
+            }
+
+            .logo-text {
+                display: none;
+            }
+        }
+
+        /* Scroll Animation Observer */
+        .fade-in {
+            opacity: 0;
+            transform: translateY(30px);
+            transition: opacity 0.8s ease-out, transform 0.8s ease-out;
+        }
+
+        .fade-in.visible {
+            opacity: 1;
+            transform: translateY(0);
+        }
+    </style>
+</head>
+<body>
+    <!-- <div class="background-grid"></div>
+    <div class="gradient-orb orb-1"></div>
+    <div class="gradient-orb orb-2"></div> -->
+
+    <nav>
+        <div class="container">
+            <a href="#" class="logo">
+                <div class="logo-icon">AB</div>
+                <span class="logo-text">Ambuj Bhardwaj</span>
+            </a>
+            <ul class="nav-links">
+                <li><a href="#impact">Impact</a></li>
+                <li><a href="#experience">Experience</a></li>
+                <li><a href="#skills">Skills</a></li>
+                <li><a href="#contact" class="nav-cta">Get in Touch</a></li>
+            </ul>
+            <button class="mobile-menu-btn" aria-label="Toggle menu">
+                <span></span>
+                <span></span>
+                <span></span>
+            </button>
+        </div>
+    </nav>
+
+    <section class="hero">
+        <div class="container">
+            <div class="hero-grid">
+                <div class="hero-content">
+                    <span class="hero-label">Business Intelligence Leader</span>
+                    <h1>Architecting Data<br>Analytics Platforms<br>that Scale</h1>
+                    <p class="hero-description">
+                        From analyst to architect, I've spent <span id="hero-years-exp">9+</span> years transforming raw data into strategic assets. I specialize in building self-serve analytics platforms, optimizing BI infrastructure, and leading teams that deliver measurable business impact.
+                    </p>
+                    
+                </div>
+                <div class="hero-image-container">
+                    <div class="image-wrapper">
+                        <div class="image-glow"></div>
+                        <img src="/assets/headshot.png" alt="Professional Headshot" class="headshot">
+                        <div class="floating-elements">
+                            <div class="floating-element element-1"></div>
+                            <div class="floating-element element-2"></div>
+                            <div class="floating-element element-3"></div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section id="impact">
+        <div class="container">
+            <div class="section-header fade-in">
+                <div class="section-label">Measurable Results</div>
+                <h2>Business Impact</h2>
+                <p class="section-description">
+                    Quantifiable outcomes from strategic initiatives, platform optimization, and team leadership across organizations.
+                </p>
+            </div>
+
+            <div class="impact-grid">
+                <div class="impact-card fade-in">
+                    <span class="impact-number" data-target="98" data-suffix="%">0%</span>
+                    <p class="impact-description">Reduction in data size on disk through strategic data warehouse design at Skan AI, enabling faster queries and lower storage costs</p>
+                </div>
+                <div class="impact-card fade-in">
+                    <span class="impact-number" data-target="95" data-suffix="%">0%</span>
+                    <p class="impact-description">Elimination of adhoc data requests through self-serve analytics platform at Citrix, freeing analysts for strategic work</p>
+                </div>
+                <div class="impact-card fade-in">
+                    <span class="impact-number" data-target="97" data-suffix="%">0%</span>
+                    <p class="impact-description">Improvement in Tableau dashboard performance through SQL optimization and lean data modeling best practices</p>
+                </div>
+                <div class="impact-card fade-in">
+                    <span class="impact-number" data-target="87" data-suffix="%">0%</span>
+                    <p class="impact-description">Accuracy of case volume forecasting model (±5%), enabling effective workforce planning and resource allocation</p>
+                </div>
+                <div class="impact-card fade-in">
+                    <span class="impact-number" data-target="80" data-suffix="%">0%</span>
+                    <p class="impact-description">Faster report refresh times achieved through data warehouse optimization and incremental refresh implementation</p>
+                </div>
+                <div class="impact-card fade-in">
+                    <span class="impact-number" data-target="58" data-suffix="%">0%</span>
+                    <p class="impact-description">Reduction in Databricks DBU consumption through strategic data refresh alignment and resource optimization</p>
+                </div>
+                <div class="impact-card fade-in">
+                    <span class="impact-number" data-target-text="120→3">120→3</span>
+                    <p class="impact-description">Dashboard consolidation ratio, moving from scattered reports to comprehensive business unit solutions</p>
+                </div>
+                <div class="impact-card fade-in">
+                    <span class="impact-number" data-target="100" data-suffix="+">0+</span>
+                    <p class="impact-description">Daily active users of redesigned leaderboard system, making it the most-used internal data product</p>
+                </div>
+                <div class="impact-card fade-in">
+                    <span class="impact-number" data-target-text="$1M+">$1M+</span>
+                    <p class="impact-description">Annual cost savings delivered through automation initiatives and workflow optimization at TCS</p>
+                </div>
+                <div class="impact-card fade-in">
+                    <span class="impact-number" data-target-text="2 days→5 min">2 days→5 min</span>
+                    <p class="impact-description">Time reduction for QBR creation through automated PowerPoint generation dashboard</p>
+                </div>
+                <div class="impact-card fade-in">
+                    <span class="impact-number" data-target-text="21%→13%">21%→13%</span>
+                    <p class="impact-description">Backlog reduction in 3 months through automated case tracking and proactive monitoring</p>
+                </div>
+                <div class="impact-card fade-in">
+                    <span class="impact-number" data-target="10" data-suffix="+">0+</span>
+                    <p class="impact-description">Analysts trained and mentored on best practices for handling multi-million record datasets</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section id="experience">
+        <div class="container">
+            <div class="section-header fade-in">
+                <div class="section-label">Professional Journey</div>
+                <h2>Experience</h2>
+                <p class="section-description">
+                    A progression from hands-on analytics to strategic architecture, building scalable data platforms and leading high-performing teams.
+                </p>
+            </div>
+
+            <div class="timeline">
+                <div class="timeline-item current">
+                    <div class="experience-card">
+                        <div class="experience-header">
+                            <div class="company-role">
+                                <div>
+                                    <h3>Skan AI</h3>
+                                    <div class="role-title">Business Intelligence Architect</div>
+                                </div>
+                                <span class="date-badge current-badge">Jun 2024 - Present</span>
+                            </div>
+                            <div class="location">📍 Bangalore, India</div>
+                        </div>
+                        <p class="experience-description">
+                            Leading BI strategy and architecture for a fast-paced process mining startup, managing entire data and analytics platforms while working with large-scale streaming and batch processed clickstream data.
+                        </p>
+                        <ul class="highlights">
+                            <li><strong>Cost Optimization:</strong> Reduced Power BI capacity usage from 85% to 45% and Databricks DBU consumption by 58% through strategic data refresh alignment</li>
+                            <li><strong>Performance Engineering:</strong> Achieved 80% faster report refresh times and 98% reduction in data size through data warehouse design</li>
+                            <li><strong>Platform Migration:</strong> Led multi-phase transition to Apache Superset, building team capability with new hires and defining implementation roadmap for on-prem deployment</li>
+                            <li><strong>Innovation:</strong> Built PBI Doctor - a Python GUI app for Power BI metadata extraction and technical documentation, presented company-wide</li>
+                            <li><strong>Team Leadership:</strong> Built and led teams of 3 analysts + 1 engineer (direct) and 10 customer-facing analysts (indirect)</li>
+                        </ul>
+                        <div class="tech-stack">
+                            <span class="tech-tag">Databricks</span>
+                            <span class="tech-tag">Power BI</span>
+                            <span class="tech-tag">Apache Superset</span>
+                            <span class="tech-tag">Postgres SQL</span>
+                            <span class="tech-tag">StarRocks</span>
+                            <span class="tech-tag">Python</span>
+                            <span class="tech-tag">PySpark</span>
+                            <span class="tech-tag">Cursor</span>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="timeline-item">
+                    <div class="experience-card">
+                        <div class="experience-header">
+                            <div class="company-role">
+                                <div>
+                                    <h3>Citrix (Cloud Software Group)</h3>
+                                    <div class="role-title">Senior BI & Analytics Analyst</div>
+                                </div>
+                                <span class="date-badge">May 2022 - May 2024</span>
+                            </div>
+                            <div class="location">📍 Bangalore, India</div>
+                        </div>
+                        <p class="experience-description">
+                            Partnered with Customer Support, Technical Support, and Leadership teams to build reliable analytics foundations and drive operational efficiency improvements.
+                        </p>
+                        <ul class="highlights">
+                            <li><strong>Self-Service Analytics:</strong> Eliminated 95% of adhoc data requests by building a trustworthy self-serve Power BI platform with data from Salesforce, SQL Server, Genesys, and GCP</li>
+                            <li><strong>Dashboard Consolidation:</strong> Led migration from 120 Tableau dashboards to 3 comprehensive Power BI solutions, mentoring team of 3 analysts</li>
+                            <li><strong>Leaderboard Redesign:</strong> Influenced leadership to adopt new scoring system, creating most-used internal product with 100+ daily active users</li>
+                            <li><strong>Process Improvement:</strong> Reduced backlog from 21% to 13% and avg case age from 30 to 12 days through automated tracking</li>
+                            <li><strong>Data Governance:</strong> Built auditable data models, documented definitions, and implemented Git version control</li>
+                        </ul>
+                        <div class="tech-stack">
+                            <span class="tech-tag">Power BI</span>
+                            <span class="tech-tag">Tableau</span>
+                            <span class="tech-tag">MS SQL Server</span>
+                            <span class="tech-tag">Salesforce</span>
+                            <span class="tech-tag">Git</span>
+                            <span class="tech-tag">Confluence</span>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="timeline-item">
+                    <div class="experience-card">
+                        <div class="experience-header">
+                            <div class="company-role">
+                                <div>
+                                    <h3>Citrix (Cloud Software Group)</h3>
+                                    <div class="role-title">BI & Analytics Analyst</div>
+                                </div>
+                                <span class="date-badge">Feb 2020 - Apr 2022</span>
+                            </div>
+                            <div class="location">📍 Bangalore, India</div>
+                        </div>
+                        <p class="experience-description">
+                            Partnered with Customer Success and Technical Support Escalations teams to deliver analytics dashboards, forecasts, and data-driven insights.
+                        </p>
+                        <ul class="highlights">
+                            <li><strong>Performance Optimization:</strong> Improved Tableau dashboard performance by 97% through SQL optimization and lean data modeling</li>
+                            <li><strong>Forecasting Model:</strong> Built case volume prediction model with 87% ±5% accuracy using novel approach blending customer base, offerings, and churn data</li>
+                            <li><strong>Automation Impact:</strong> Reduced QBR creation time from 2 days to 5 minutes with click-to-PowerPoint dashboard</li>
+                            <li><strong>Dashboard Portfolio:</strong> Built 12 dashboards tracking NPS, case volume, deals, product lines, FDR, FCR, and case metrics</li>
+                            <li><strong>Knowledge Sharing:</strong> Evangelized SQL adoption, organized training sessions across departments</li>
+                        </ul>
+                        <div class="tech-stack">
+                            <span class="tech-tag">Tableau</span>
+                            <span class="tech-tag">SQL</span>
+                            <span class="tech-tag">Excel</span>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="timeline-item">
+                    <div class="experience-card">
+                        <div class="experience-header">
+                            <div class="company-role">
+                                <div>
+                                    <h3>Tata Consultancy Services</h3>
+                                    <div class="role-title">Systems Analyst / Data Analyst</div>
+                                </div>
+                                <span class="date-badge">Sep 2016 - Jan 2020</span>
+                            </div>
+                            <div class="location">📍 Bangalore, India</div>
+                        </div>
+                        <p class="experience-description">
+                            Solved operational inefficiencies through data analysis, MIS reporting, and automation initiatives across Insurance, Aerospace, and Process Improvement domains.
+                        </p>
+                        <ul class="highlights">
+                            <li><strong>Cost Savings:</strong> Delivered ~$1M annual savings through document search automation and workflow optimization</li>
+                            <li><strong>Search Engine:</strong> Built VBA-based search engine using NLP concepts for fast discovery from large Excel-based process documentation</li>
+                            <li><strong>ETL Automation:</strong> Created VBA scripts for data extraction from Excel/PDF and transformation into reporting-ready formats</li>
+                            <li><strong>Reporting:</strong> Developed utilization, billable vs non-billable effort, and project progress dashboards</li>
+                        </ul>
+                        <div class="tech-stack">
+                            <span class="tech-tag">Excel</span>
+                            <span class="tech-tag">VBA</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section id="skills">
+        <div class="container">
+            <div class="section-header fade-in">
+                <div class="section-label">Core Competencies</div>
+                <h2>Skills & Expertise</h2>
+            </div>
+
+            <div class="skills-grid">
+                <div class="skill-category fade-in">
+                    <h3>BI & Analytics Platform</h3>
+                    <ul class="skill-list">
+                        <li>Power BI (Advanced)</li>
+                        <li>Tableau (Expert)</li>
+                        <li>Apache Superset</li>
+                        <li>Self-Service Analytics Design</li>
+                        <li>Dashboard Optimization</li>
+                        <li>BI Strategy & Governance</li>
+                    </ul>
+                </div>
+                <div class="skill-category fade-in">
+                    <h3>Data Engineering</h3>
+                    <ul class="skill-list">
+                        <li>Data Warehouse Architecture</li>
+                        <li>Databricks & PySpark</li>
+                        <li>MS SQL Server</li>
+                        <li>Postgres SQL</li>
+                        <li>StarRocks</li>
+                        <li>ETL/ELT Pipelines</li>
+                    </ul>
+                </div>
+                <div class="skill-category fade-in">
+                    <h3>Technical Skills</h3>
+                    <ul class="skill-list">
+                        <li>SQL (Advanced)</li>
+                        <li>Python & VBA</li>
+                        <li>DAX & M Query</li>
+                        <li>Git Version Control</li>
+                        <li>Data Modeling</li>
+                        <li>Performance Optimization</li>
+                    </ul>
+                </div>
+                <div class="skill-category fade-in">
+                    <h3>Leadership & Strategy</h3>
+                    <ul class="skill-list">
+                        <li>Team Building & Mentoring</li>
+                        <li>Stakeholder Management</li>
+                        <li>Executive Communication</li>
+                        <li>Program Planning & Execution</li>
+                        <li>Requirement Gathering</li>
+                        <li>Process Improvement</li>
+                    </ul>
+                </div>
+                <div class="skill-category fade-in">
+                    <h3>Data Integration</h3>
+                    <ul class="skill-list">
+                        <li>Salesforce</li>
+                        <li>Genesys</li>
+                        <li>Workday</li>
+                        <li>Google Cloud Platform</li>
+                        <li>Azure Blob Storage</li>
+                        <li>Multi-Source Integration</li>
+                    </ul>
+                </div>
+                <div class="skill-category fade-in">
+                    <h3>Domains</h3>
+                    <ul class="skill-list">
+                        <li>Customer Success Analytics</li>
+                        <li>Technical Support Operations</li>
+                        <li>Process Mining</li>
+                        <li>Workforce Management</li>
+                        <li>Digital Experience Analytics</li>
+                        <li>Knowledge Management</li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section id="contact">
+        <div class="container">
+            <div class="section-header fade-in">
+                <div class="section-label">Get in Touch</div>
+                <h2>Let's Connect</h2>
+                <p class="section-description">
+                    Interested in discussing data strategy, BI architecture, or potential collaboration? I'd love to hear from you.
+                </p>
+            </div>
+
+            <div class="contact-content">
+                <div class="contact-info-card fade-in">
+                    <div class="contact-links">
+                        <a href="mailto:ambuj.mtr@gmail.com" class="contact-link">
+                            <div class="contact-link-icon">
+                                <svg viewBox="0 0 24 24">
+                                    <path d="M20 4H4c-1.1 0-2 .9-2 2v12c0 1.1.9 2 2 2h16c1.1 0 2-.9 2-2V6c0-1.1-.9-2-2-2zm0 4l-8 5-8-5V6l8 5 8-5v2z" fill="white"/>
+                                </svg>
+                            </div>
+                            <div class="contact-link-content">
+                                <span class="contact-link-label">Email</span>
+                                <span class="contact-link-value">ambuj.mtr@gmail.com</span>
+                            </div>
+                        </a>
+                        <a href="https://www.linkedin.com/in/ambuj-bhardwaj/" target="_blank" rel="noopener noreferrer" class="contact-link">
+                            <div class="contact-link-icon">
+                                <svg viewBox="0 0 24 24">
+                                    <path d="M20.447 20.452h-3.554v-5.569c0-1.328-.027-3.037-1.852-3.037-1.853 0-2.136 1.445-2.136 2.939v5.667H9.351V9h3.414v1.561h.046c.477-.9 1.637-1.85 3.37-1.85 3.601 0 4.267 2.37 4.267 5.455v6.286zM5.337 7.433c-1.144 0-2.063-.926-2.063-2.065 0-1.138.92-2.063 2.063-2.063 1.14 0 2.064.925 2.064 2.063 0 1.139-.925 2.065-2.064 2.065zm1.782 13.019H3.555V9h3.564v11.452zM22.225 0H1.771C.792 0 0 .774 0 1.729v20.542C0 23.227.792 24 1.771 24h20.451C23.2 24 24 23.227 24 22.271V1.729C24 .774 23.2 0 22.222 0h.003z" fill="white"/>
+                                </svg>
+                            </div>
+                            <div class="contact-link-content">
+                                <span class="contact-link-label">LinkedIn</span>
+                                <span class="contact-link-value">linkedin.com/in/ambuj-bhardwaj</span>
+                            </div>
+                        </a>
+                        <a href="https://topmate.io/ambuj_bhardwaj" target="_blank" rel="noopener noreferrer" class="contact-link">
+                            <div class="contact-link-icon">
+                                <svg viewBox="0 0 24 24">
+                                    <path d="M19 3h-1V1h-2v2H8V1H6v2H5c-1.1 0-2 .9-2 2v14c0 1.1.9 2 2 2h14c1.1 0 2-.9 2-2V5c0-1.1-.9-2-2-2zm0 16H5V8h14v11zM9 10H7v2h2v-2zm4 0h-2v2h2v-2zm4 0h-2v2h2v-2zm-8 4H7v2h2v-2zm4 0h-2v2h2v-2zm4 0h-2v2h2v-2z" fill="white"/>
+                                </svg>
+                            </div>
+                            <div class="contact-link-content">
+                                <span class="contact-link-label">Topmate</span>
+                                <span class="contact-link-value">topmate.io/ambuj_bhardwaj</span>
+                            </div>
+                        </a>
+                    </div>
+                </div>
+
+                <div class="contact-cta fade-in">
+                    <h3>Ready to Transform Your Data Strategy?</h3>
+                    <p>
+                        Whether you're looking to build a self-serve analytics platform, optimize your BI infrastructure, need guidance on data architecture decisions, or want mentorship on your data analytics career journey, let's have a conversation.
+                    </p>
+                    <a href="https://topmate.io/ambuj_bhardwaj" target="_blank" rel="noopener noreferrer" class="contact-cta-btn">
+                        <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                            <path d="M21 11.5a8.38 8.38 0 0 1-.9 3.8 8.5 8.5 0 0 1-7.6 4.7 8.38 8.38 0 0 1-3.8-.9L3 21l1.9-5.7a8.38 8.38 0 0 1-.9-3.8 8.5 8.5 0 0 1 4.7-7.6 8.38 8.38 0 0 1 3.8-.9h.5a8.48 8.48 0 0 1 8 8v.5z"></path>
+                        </svg>
+                        Book a Session
+                    </a>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <footer>
+        <div class="container">
+            <div class="footer-content">
+                <div class="footer-left">
+                    <div class="footer-logo-icon">AB</div>
+                    <div>
+                        <p class="footer-text" style="color: var(--navy); font-weight: 500;">Ambuj Bhardwaj</p>
+                        <p class="footer-text">Business Intelligence Architect</p>
+                    </div>
+                </div>
+                <p class="footer-text">📍 Bangalore, India</p>
+                <div class="footer-social">
+                    <a href="https://www.linkedin.com/in/ambuj-bhardwaj/" target="_blank" rel="noopener noreferrer" aria-label="LinkedIn">
+                        <svg viewBox="0 0 24 24">
+                            <path d="M20.447 20.452h-3.554v-5.569c0-1.328-.027-3.037-1.852-3.037-1.853 0-2.136 1.445-2.136 2.939v5.667H9.351V9h3.414v1.561h.046c.477-.9 1.637-1.85 3.37-1.85 3.601 0 4.267 2.37 4.267 5.455v6.286zM5.337 7.433c-1.144 0-2.063-.926-2.063-2.065 0-1.138.92-2.063 2.063-2.063 1.14 0 2.064.925 2.064 2.063 0 1.139-.925 2.065-2.064 2.065zm1.782 13.019H3.555V9h3.564v11.452zM22.225 0H1.771C.792 0 0 .774 0 1.729v20.542C0 23.227.792 24 1.771 24h20.451C23.2 24 24 23.227 24 22.271V1.729C24 .774 23.2 0 22.222 0h.003z"/>
+                        </svg>
+                    </a>
+                    <a href="https://topmate.io/ambuj_bhardwaj" target="_blank" rel="noopener noreferrer" aria-label="Topmate">
+                        <svg viewBox="0 0 24 24">
+                            <path d="M19 3h-1V1h-2v2H8V1H6v2H5c-1.1 0-2 .9-2 2v14c0 1.1.9 2 2 2h14c1.1 0 2-.9 2-2V5c0-1.1-.9-2-2-2zm0 16H5V8h14v11zM9 10H7v2h2v-2zm4 0h-2v2h2v-2zm4 0h-2v2h2v-2zm-8 4H7v2h2v-2zm4 0h-2v2h2v-2zm4 0h-2v2h2v-2z"/>
+                        </svg>
+                    </a>
+                    <a href="mailto:ambuj.mtr@gmail.com" aria-label="Email">
+                        <svg viewBox="0 0 24 24">
+                            <path d="M20 4H4c-1.1 0-2 .9-2 2v12c0 1.1.9 2 2 2h16c1.1 0 2-.9 2-2V6c0-1.1-.9-2-2-2zm0 4l-8 5-8-5V6l8 5 8-5v2z"/>
+                        </svg>
+                    </a>
+                </div>
+            </div>
+        </div>
+    </footer>
+
+    <script>
+        // Calculate years of experience dynamically
+        function calculateExperience() {
+            const startDate = new Date('2016-09-01');
+            const currentDate = new Date();
+            const diffInMs = currentDate - startDate;
+            const diffInYears = diffInMs / (1000 * 60 * 60 * 24 * 365.25);
+            const yearsExperience = diffInYears.toFixed(1);
+            
+            // Update the stats box years experience only
+            const statsYearsElement = document.getElementById('years-experience');
+            if (statsYearsElement) {
+                statsYearsElement.textContent = yearsExperience + '+';
+            }
+
+            // Update the hero description
+            const heroYearsElement = document.getElementById('hero-years-exp');
+            if (heroYearsElement) {
+                heroYearsElement.textContent = yearsExperience + '+';
+            }
+        }
+
+        // Calculate on page load
+        calculateExperience();
+
+        // Count-up animation for impact metrics
+        function animateCountUp(element, target, suffix = '', duration = 2000) {
+            const start = 0;
+            const startTime = performance.now();
+            
+            function update(currentTime) {
+                const elapsed = currentTime - startTime;
+                const progress = Math.min(elapsed / duration, 1);
+                
+                // Easing function for smooth animation
+                const easeOutQuart = 1 - Math.pow(1 - progress, 4);
+                const current = Math.floor(easeOutQuart * target);
+                
+                element.textContent = current + suffix;
+                
+                if (progress < 1) {
+                    requestAnimationFrame(update);
+                } else {
+                    element.textContent = target + suffix;
+                }
+            }
+            
+            requestAnimationFrame(update);
+        }
+
+        // Intersection Observer for count-up animations
+        const countUpObserver = new IntersectionObserver((entries) => {
+            entries.forEach(entry => {
+                if (entry.isIntersecting) {
+                    const element = entry.target;
+                    const target = element.dataset.target;
+                    const suffix = element.dataset.suffix || '';
+                    const targetText = element.dataset.targetText;
+                    
+                    if (target && !element.dataset.animated) {
+                        element.dataset.animated = 'true';
+                        animateCountUp(element, parseInt(target), suffix);
+                    } else if (targetText && !element.dataset.animated) {
+                        // For non-numeric values, just reveal them with a fade effect
+                        element.dataset.animated = 'true';
+                        element.style.opacity = '0';
+                        element.textContent = targetText;
+                        setTimeout(() => {
+                            element.style.transition = 'opacity 0.5s ease';
+                            element.style.opacity = '1';
+                        }, 100);
+                    }
+                }
+            });
+        }, {
+            threshold: 0.5,
+            rootMargin: '0px 0px -50px 0px'
+        });
+
+        // Observe all impact numbers
+        document.querySelectorAll('.impact-number').forEach(el => {
+            countUpObserver.observe(el);
+        });
+
+        // Smooth scrolling for navigation links
+        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+            anchor.addEventListener('click', function (e) {
+                e.preventDefault();
+                const target = document.querySelector(this.getAttribute('href'));
+                if (target) {
+                    target.scrollIntoView({
+                        behavior: 'smooth',
+                        block: 'start'
+                    });
+                }
+            });
+        });
+
+        // Intersection Observer for fade-in animations
+        const observerOptions = {
+            threshold: 0.1,
+            rootMargin: '0px 0px -50px 0px'
+        };
+
+        const observer = new IntersectionObserver((entries) => {
+            entries.forEach(entry => {
+                if (entry.isIntersecting) {
+                    entry.target.classList.add('visible');
+                }
+            });
+        }, observerOptions);
+
+        // Observe all elements with fade-in class
+        document.querySelectorAll('.fade-in').forEach(el => {
+            observer.observe(el);
+        });
+
+        // Add active state to nav links based on scroll position
+        window.addEventListener('scroll', () => {
+            let current = '';
+            const sections = document.querySelectorAll('section[id]');
+            
+            sections.forEach(section => {
+                const sectionTop = section.offsetTop;
+                const sectionHeight = section.clientHeight;
+                if (scrollY >= (sectionTop - 200)) {
+                    current = section.getAttribute('id');
+                }
+            });
+
+            document.querySelectorAll('.nav-links a').forEach(link => {
+                link.classList.remove('active');
+                if (link.getAttribute('href').slice(1) === current) {
+                    link.classList.add('active');
+                }
+            });
+        });
+
+        // Mobile menu toggle (for future implementation)
+        const mobileMenuBtn = document.querySelector('.mobile-menu-btn');
+        if (mobileMenuBtn) {
+            mobileMenuBtn.addEventListener('click', () => {
+                // Mobile menu functionality can be added here
+                console.log('Mobile menu clicked');
+            });
+        }
+    </script>
+</body>
+</html>
